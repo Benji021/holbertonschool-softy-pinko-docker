@@ -1,0 +1,1 @@
+docker-compose up --build backend backend2 frontend proxy
