@@ -1,0 +1,23 @@
+services:
+  backend:
+    build: ./back-end
+    networks:
+      - mynetwork
+
+  frontend:
+    build: ./front-end
+    networks:
+      - mynetwork
+
+  proxy:
+    build: ./proxy
+    ports:
+      - "80:80"  # Expose proxy port 80 to host port 80
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
